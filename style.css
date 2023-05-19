@@ -64,6 +64,10 @@ select:focus {
 	position: absolute;
 	bottom: calc(0vh + 8px);
 	left: calc(0vw + 8px);
+	font-style: italic;
+	text-decoration:none;
+	font-weight: bold;
+	opacity: 25%;
 }
 
 #replit {
