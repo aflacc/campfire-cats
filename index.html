@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>campfire cats</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link rel="icon" href="assets/campfire.gif" type="image/gif" />
+</head>
+
+<body>
+	<a id="themetoggle" onclick="toggle_theme()" href="#">my eyes hurt :(</a>
+	<canvas id='cats' width="640px" height="360px">canvas :(</canvas>
+	<div class="placement_preview">
+
+	</div>
+	<div class="container">
+		<button>save image</button>
+		<select id="fileType" value="png">
+			<option value="png">.png</option>
+			<option value="jpg">.jpg</option>
+			<option value="gif">.gif</option>
+		</select>
+		<select id="mode" onchange="update_instructions()" value="cat">
+			<option value="cat">cat</option>
+			<option value="camp">campfire</option>
+			<option value="edit">edit</option>
+			<option value="delete">delete</option>
+		</select>
+		<span id="controls">left click - place cat</span>
+	</div>
+	<div class="container">
+		<img src="assets/catsitting.gif" style="display: block; margin-left:auto; margin-right: auto;">
+		<p>i have not tested it but it probably will not work on mobile devices, for best experience use a computer. i'm
+			unsure if i am going to be able to finish this, i'm not sure how i'm gonna make the image downloadable yet. images
+			are 640x360 pixels. dunno if i will ever add the ability to choose the size <br /> <br /> gif support is planned.
+			i have no intentions to add animation/motion, too hard. <br /> <br /> layering is based on the cats vertical position, cats higher up will appear behind cats lower than it<br/> <br/>as of right now all of that text is lying to you nothings functional yet</p>
+
+	</div>
+	<!--a id="replit">made with replit</a-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script src="script.js"></script>
+
+	<!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+	<script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>
