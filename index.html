@@ -17,9 +17,6 @@
 <body>
 	<a id="themetoggle" onclick="toggle_theme()" href="#">my eyes hurt :(</a>
 	<canvas id='cats' width="640px" height="360px">canvas :(</canvas>
-	<div class="placement_preview">
-
-	</div>
 	<div class="container">
 		<button>save image</button>
 		<select id="fileType" value="png">
@@ -27,13 +24,16 @@
 			<option value="jpg">.jpg</option>
 			<option value="gif">.gif</option>
 		</select>
-		<select id="mode" onchange="update_instructions()" value="cat">
+		<input type="number" min="0" value="3" id="cats" title="cats">
+		<input type="number" min="0" value="1" id="campfires" title="campfires">
+		
+		<!--select id="mode" onchange="update_instructions()" value="cat">
 			<option value="cat">cat</option>
 			<option value="camp">campfire</option>
 			<option value="edit">edit</option>
 			<option value="delete">delete</option>
 		</select>
-		<span id="controls">left click - place cat</span>
+		<span id="controls">left click - place cat</span-->
 	</div>
 	<div class="container">
 		<img src="assets/catsitting.gif" style="display: block; margin-left:auto; margin-right: auto;">
@@ -41,7 +41,7 @@
 			unsure if i am going to be able to finish this, i'm not sure how i'm gonna make the image downloadable yet. images
 			are 640x360 pixels. dunno if i will ever add the ability to choose the size <br /> <br /> gif support is planned.
 			i have no intentions to add animation/motion, too hard. <br /> <br /> layering is based on the cats vertical
-			position, cats higher up will appear behind cats lower than it<br /> <br />as of right now all of that text is
+			position, cats higher up will appear behind cats lower than it. and you can flip objects by right clicking them<br /> <br />as of right now all of that text is
 			lying to you nothings functional yet</p>
 
 	</div>
