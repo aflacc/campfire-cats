@@ -3,6 +3,11 @@ var campfires = {}
 var preview = document.getElementById("placement_preview");
 var root = document.querySelector(':root');
 var darktheme = false;
+
+var images = {
+	"campfire": "https://github.com/aflacc/campfire-cats/blob/main/assets/campfire.gif?raw=true",
+	"cat": "https://github.com/aflacc/campfire-cats/blob/main/assets/cat.png?raw=true"
+}
 // unused at the moment, keeping it in case i want to use it later
 // these instructions aren't even remotely accurate anymore too, don't listen to them
 function update_instructions() {
@@ -44,6 +49,13 @@ class Object {
 		this.type = type;
 		// unsure if i should use a div or img here, using img bc i can
 		var element = document.createElement("img");
-		
+		element.src = images[type];
+		document.getElementById("canvas").appendChild(element);
 	}
+}
+
+/** debug, use at own risk this will probably end reality as we know it or something */ 
+function createTestObject(type) {
+	console.log("you've doomed us all")
+	new Object(type); // i see no reason to assign it to variable other than to create intentional memory leaks
 }
