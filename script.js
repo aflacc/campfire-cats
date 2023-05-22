@@ -1,5 +1,7 @@
-var cats = {}
-var campfires = {}
+var objects = { // in different arrays so i can use the funny individual counters :3
+	cat: [],
+	campfire: []
+} // todo: get the code to only create NEW cats, if the number of cats gets lowered, unload the unneeded ones so they can be brought back with same positioning and stuff (the people will thank me)
 var preview = document.getElementById("placement_preview");
 var root = document.querySelector(':root');
 var darktheme = false;
@@ -45,15 +47,60 @@ function toggle_theme(actuallyChange) {
 }
 // objec t :)
 class Object {
-	constructor(type) {
+	constructor(type,x,y) {
 		this.type = type;
+		this.flipped = false;
 		// unsure if i should use a div or img here, using img bc i can
 		var element = document.createElement("img");
+		element.classList.add("img_obj");
 		element.src = images[type];
+		element.draggable = false;
+		objects[type].push(element);
+		element.oncontextmenu = function()
+			{
+				this.flipped = !this.flipped;
+				if (this.flipped)
+				{
+					element.style["-webkit-transform"] = "scaleX(-1)";
+					element.style["transform"] = "scaleX(-1)";
+					
+				}
+				else
+				{
+					element.style["-webkit-transform"] = "scaleX(1)";
+					element.style["transform"] = "scaleX(1)";
+					
+				}
+				return false; // no context menu >:(
+			}
 		document.getElementById("canvas").appendChild(element);
 	}
 }
+// general handler
+function changeObjectCount() {
+	var intendedCatCount 	= Number(document.getElementById("counter_cats").value) + 0;
+	var intendedCFCount 	= Number(document.getElementById("counter_campfires").value) + 0;
+	console.log(`${intendedCatCount} cats and ${intendedCFCount} campfires`);
 
+	
+	for (let cat = 0; cat < intendedCatCount; cat++)
+		{
+			//console.log("l")
+			if (objects["cat"][cat] == null)
+			{
+				new Object("cat");
+			}
+		}
+	for (let cf = 0; cf < intendedCFCount; cf++)
+		{
+			//console.log("l")
+			if (objects["campfire"][cf] == null)
+			{
+				new Object("campfire");
+			}
+		}
+	console.log(objects["cat"]);
+}
 /** debug, use at own risk this will probably end reality as we know it or something */ 
 function createTestObject(type) {
 	console.log("you've doomed us all")

@@ -5,7 +5,7 @@
 	--light-button: #e0e0e0;
 	--light-button-border:#9e9e9e;
 
-	--dark-background: #0f0f0f;
+	--dark-background: #1f1f1f;
 	--dark-text: white;
 	--dark-border: #545454;
 	--dark-button: #4f4f4f;
@@ -37,8 +37,11 @@ canvas, .container, #canvas{
 canvas, #canvas {
 	cursor:crosshair;
 	clip-path:fill-box;
+	width: 640px;
+	height: 360px;
 	z-index: 99999999;
-	aspect-ratio: 3/2;
+	overflow:hidden;
+	resize:none;
 }
 
 .container {
@@ -100,4 +103,9 @@ div, canvas {
 	z-index: 9999999;
 	position:absolute;
   transform:translate(-50%,-50%);
+}
+
+.img_obj {
+	cursor: move;
+	
 }
