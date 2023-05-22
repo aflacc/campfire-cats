@@ -29,9 +29,11 @@ html {
 * {
 	color: var(--theme-text);
 	font-family:Arial, Helvetica, sans-serif;
+	image-rendering:pixelated;
 }
 canvas, .container, #canvas{
 	border: 2px var(--theme-border) solid;
+	position: relative;
 }
 
 canvas, #canvas {
@@ -69,7 +71,7 @@ select:focus {
 }
 
 #themetoggle {
-	position:absolute;
+	position:fixed;
 	bottom: calc(0vh + 8px);
 	left: calc(0vw + 8px);
 	font-style: italic;
@@ -107,5 +109,8 @@ div, canvas {
 
 .img_obj {
 	cursor: move;
-	
+	position:absolute;
+	display: inline-flex;
+	top: 0px;
+	left: 0px;
 }

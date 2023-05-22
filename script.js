@@ -47,15 +47,33 @@ function toggle_theme(actuallyChange) {
 }
 // objec t :)
 class Object {
-	constructor(type,x,y) {
+	constructor(type,x = 0,y = 0,flipped = false) {
 		this.type = type;
-		this.flipped = false;
+		this.x = x;
+		this.y = y;
+		this.flipped = flipped;
 		// unsure if i should use a div or img here, using img bc i can
 		var element = document.createElement("img");
 		element.classList.add("img_obj");
 		element.src = images[type];
 		element.draggable = false;
-		objects[type].push(element);
+		element.style.left = this.x + "px";
+		element.style.top = this.y + "px";
+
+		if (!this.flipped)
+				{
+					element.style["-webkit-transform"] = "scaleX(1)";
+					element.style["transform"] = "scaleX(1)";
+					
+				}
+				else
+				{
+					element.style["-webkit-transform"] = "scaleX(-1)";
+					element.style["transform"] = "scaleX(-1)";
+				}
+
+		this.flipped = flipped;
+		
 		element.oncontextmenu = function()
 			{
 				this.flipped = !this.flipped;
@@ -69,11 +87,12 @@ class Object {
 				{
 					element.style["-webkit-transform"] = "scaleX(1)";
 					element.style["transform"] = "scaleX(1)";
-					
 				}
 				return false; // no context menu >:(
 			}
+		this.element = element;
 		document.getElementById("canvas").appendChild(element);
+		return this;
 	}
 }
 // general handler
@@ -84,11 +103,11 @@ function changeObjectCount() {
 
 	objects.cat.forEach(function(c)
 													{
-														c.style.display = "none";
+														c.element.style.display = "none";
 													})
 	objects.campfire.forEach(function(c)
 													{
-														c.style.display = "none";
+														c.element.style.display = "none";
 													})
 	for (let cat = 0; cat < intendedCatCount; cat++)
 		{
@@ -96,11 +115,11 @@ function changeObjectCount() {
 			//console.log("l")
 			if (objects["cat"][cat] == null)
 			{
-				new Object("cat");
+				objects["cat"].push(new Object("cat"));
 			}
 			else
 			{
-				objects["cat"][cat].style.display = "inline-block";
+				objects["cat"][cat].element.style.display = "inline-flex";
 			}
 		}
 	for (let cf = 0; cf < intendedCFCount; cf++)
@@ -108,17 +127,25 @@ function changeObjectCount() {
 			//console.log("l")
 			if (objects["campfire"][cf] == null)
 			{
-				new Object("campfire");
+				objects["campfire"].push(new Object("campfire"));
 			}
 			else
 			{
-				objects["campfire"][cf].style.display = "inline-block";
+				objects["campfire"][cf].element.style.display = "inline-flex";
 			}
 		}
 	console.log(objects["cat"]);
 }
 /** debug, use at own risk this will probably end reality as we know it or something */ 
-function createTestObject(type) {
+function createObject(type,x,y,flipped) {
 	console.log("you've doomed us all")
-	new Object(type); // i see no reason to assign it to variable other than to create intentional memory leaks
+	objects[type].push(new Object(type,x,y,flipped)); // i see no reason to assign it to variable other than to create intentional memory leaks
 }
+
+createObject("cat",110,125,false)
+createObject("campfire",210,125,false)
+createObject("cat",295,125,true)
+createObject("cat",380,125,true)
+
+
+changeObjectCount()
