@@ -82,13 +82,25 @@ function changeObjectCount() {
 	var intendedCFCount 	= Number(document.getElementById("counter_campfires").value) + 0;
 	console.log(`${intendedCatCount} cats and ${intendedCFCount} campfires`);
 
-	
+	objects.cat.forEach(function(c)
+													{
+														c.style.display = "none";
+													})
+	objects.campfire.forEach(function(c)
+													{
+														c.style.display = "none";
+													})
 	for (let cat = 0; cat < intendedCatCount; cat++)
 		{
+			
 			//console.log("l")
 			if (objects["cat"][cat] == null)
 			{
 				new Object("cat");
+			}
+			else
+			{
+				objects["cat"][cat].style.display = "inline-block";
 			}
 		}
 	for (let cf = 0; cf < intendedCFCount; cf++)
@@ -97,6 +109,10 @@ function changeObjectCount() {
 			if (objects["campfire"][cf] == null)
 			{
 				new Object("campfire");
+			}
+			else
+			{
+				objects["campfire"][cf].style.display = "inline-block";
 			}
 		}
 	console.log(objects["cat"]);
