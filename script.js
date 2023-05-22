@@ -44,5 +44,6 @@ class Object {
 		this.type = type;
 		// unsure if i should use a div or img here, using img bc i can
 		var element = document.createElement("img");
+		
 	}
 }

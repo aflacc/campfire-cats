@@ -38,6 +38,7 @@ canvas, #canvas {
 	cursor:crosshair;
 	clip-path:fill-box;
 	z-index: 99999999;
+	aspect-ratio: 3/2;
 }
 
 .container {
@@ -65,7 +66,7 @@ select:focus {
 }
 
 #themetoggle {
-	position:sticky;
+	position:absolute;
 	bottom: calc(0vh + 8px);
 	left: calc(0vw + 8px);
 	font-style: italic;
