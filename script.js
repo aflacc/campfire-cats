@@ -38,10 +38,11 @@ function toggle_theme(actuallyChange) {
 	root.style.setProperty('--theme-button', `var(--${darktheme ? "dark" : "light"}-button)`);
 	root.style.setProperty('--theme-button-border', `var(--${darktheme ? "dark" : "light"}-button-border)`);
 }
-
-//
+// objec t :)
 class Object {
-	constructor() {
-		
+	constructor(type) {
+		this.type = type;
+		// unsure if i should use a div or img here, using img bc i can
+		var element = document.createElement("img");
 	}
 }
