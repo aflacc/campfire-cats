@@ -114,6 +114,11 @@ div, canvas {
 	top: 0px;
 	left: 0px;
 	user-select: none;
+	transition: filter 100ms;
+}
+.img_obj:hover {
+	filter: drop-shadow(0px 0px 6px var(--theme-text));
+	transition: filter 100ms;
 }
 
 #mobiledetcted {
