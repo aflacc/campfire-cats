@@ -1,7 +1,7 @@
 var objects = { // in different arrays so i can use the funny individual counters :3
 	cat: [],
 	campfire: []
-} // todo: get the code to only create NEW cats, if the number of cats gets lowered, unload the unneeded ones so they can be brought back with same positioning and stuff (the people will thank me)
+} 
 var preview = document.getElementById("placement_preview");
 var root = document.querySelector(':root');
 var darktheme = false;
@@ -10,6 +10,12 @@ var images = {
 	"campfire": "https://github.com/aflacc/campfire-cats/blob/main/assets/campfire.gif?raw=true",
 	"cat": "https://github.com/aflacc/campfire-cats/blob/main/assets/cat.png?raw=true"
 }
+
+// math.random is weird
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 // unused at the moment, keeping it in case i want to use it later
 // these instructions aren't even remotely accurate anymore too, don't listen to them
 function update_instructions() {
@@ -47,10 +53,13 @@ function toggle_theme(actuallyChange) {
 }
 // objec t :)
 class Object {
-	constructor(type,x = 0,y = 0,flipped = false) {
+	constructor(type,x,y,flipped = false) {
 		this.type = type;
-		this.x = x;
-		this.y = y;
+		if (x != null) {this.x = x;} else {this.x = getRandomInt(640);}
+		if (y != null) {this.y = y;} else {this.y = getRandomInt(360);}
+
+		console.log(x,y);
+		console.log(this.x,this.y);
 		this.flipped = flipped;
 		// unsure if i should use a div or img here, using img bc i can
 		var element = document.createElement("img");
@@ -59,21 +68,21 @@ class Object {
 		element.draggable = false;
 		element.style.left = this.x + "px";
 		element.style.top = this.y + "px";
+		element.style["z-index"] = this.y;
 
+		// initial one for loading page.. used once... sharing when?
 		if (!this.flipped)
 				{
 					element.style["-webkit-transform"] = "scaleX(1)";
 					element.style["transform"] = "scaleX(1)";
-					
 				}
 				else
 				{
 					element.style["-webkit-transform"] = "scaleX(-1)";
 					element.style["transform"] = "scaleX(-1)";
 				}
-
 		this.flipped = flipped;
-		
+		// womp womp
 		element.oncontextmenu = function()
 			{
 				this.flipped = !this.flipped;
@@ -81,7 +90,6 @@ class Object {
 				{
 					element.style["-webkit-transform"] = "scaleX(-1)";
 					element.style["transform"] = "scaleX(-1)";
-					
 				}
 				else
 				{
@@ -115,7 +123,7 @@ function changeObjectCount() {
 			//console.log("l")
 			if (objects["cat"][cat] == null)
 			{
-				objects["cat"].push(new Object("cat"));
+				objects["cat"].push(new Object("cat",null,null));
 			}
 			else
 			{
@@ -127,7 +135,7 @@ function changeObjectCount() {
 			//console.log("l")
 			if (objects["campfire"][cf] == null)
 			{
-				objects["campfire"].push(new Object("campfire"));
+				objects["campfire"].push(new Object("campfire",null,null));
 			}
 			else
 			{
@@ -141,11 +149,18 @@ function createObject(type,x,y,flipped) {
 	console.log("you've doomed us all")
 	objects[type].push(new Object(type,x,y,flipped)); // i see no reason to assign it to variable other than to create intentional memory leaks
 }
-
+// professional programmer moments right here
 createObject("cat",110,125,false)
 createObject("campfire",210,125,false)
 createObject("cat",295,125,true)
 createObject("cat",380,125,true)
-
-
+// and finally
 changeObjectCount()
+
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+  // true for mobile device
+  //document.write("mobile device");
+}else{
+  // false for not mobile device
+  //document.write("not mobile device");
+}

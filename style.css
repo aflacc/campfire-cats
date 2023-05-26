@@ -113,4 +113,15 @@ div, canvas {
 	display: inline-flex;
 	top: 0px;
 	left: 0px;
+	user-select: none;
+}
+
+#mobiledetcted {
+	background-color: white;
+	width: 100vw;
+	height: 100vh;
+	position:fixed;
+	z-index: 999999999;
+	top: 0;
+	text-align: center;
 }
