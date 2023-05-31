@@ -43,6 +43,7 @@ canvas, #canvas {
 	height: 360px;
 	z-index: 99999999;
 	overflow:hidden;
+	/*aspect-ratio: 16/9;*/
 	resize:none;
 }
 
@@ -71,13 +72,17 @@ select:focus {
 }
 
 #themetoggle {
-	position:fixed;
-	bottom: calc(0vh + 8px);
-	left: calc(0vw + 8px);
-	font-style: italic;
+	/*position:fixed;*/
+	/*bottom: calc(0vh + 8px);
+	left: calc(0vw + 8px);*/
+	/*font-style: italic;
 	text-decoration:none;
-	font-weight: bold;
+	font-weight: bold;*/
 	opacity: 25%;
+}
+
+a {
+	color: var(--theme-text);
 }
 
 .checkbox_holder {

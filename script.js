@@ -49,9 +49,9 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.top = Math.floor(elmnt.offsetTop - pos2) + "px";
 		elmnt.style["z-index"] = (elmnt.offsetTop - pos2);
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.left = Math.floor(elmnt.offsetLeft - pos1) + "px";
   }
 
   function closeDragElement() {
@@ -117,6 +117,11 @@ class Object {
 
 		dragElement(element);
 
+		element.ondblclick = function()
+			{
+				element.style["z-index"] = 9999;
+			}
+		
 		// initial one for loading page.. used once... sharing when?
 		if (!this.flipped)
 				{
@@ -216,4 +221,47 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 }else{
   // false for not mobile device
   //document.write("not mobile device");
+}
+const canvas = document.getElementById("generated")
+const ctx = document.getElementById("generated").getContext("2d");
+
+// wip, likely will break.
+function generateImage()
+{
+	console.log("Generating image!!! :3")
+	domtoimage.toPng(document.getElementById("canvas"))
+    .then(function (dataUrl) {
+			window.open('',dataUrl)
+		})
+	/*domtoimage.toJpeg(document.getElementById('canvas'), { quality: 0.95 })
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        link.href = dataUrl;
+        link.click();
+    });*/
+
+	/*
+	var c = document.getElementById('generated');
+	c.style.display = "block";
+    var t = c.getContext('2d');
+    window.location.href = image;
+
+    window.open('', document.getElementById('generated').toDataURL());
+	/**/
+	ctx.setTransform(1, 0, 0, 1, 0, 0);
+	 
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.beginPath();
+	ctx.globalCompositeOperation = "destination-over";
+	//const combine = []; // objects but its combined into one and sorted by z-index
+	
+	/*["cat","campfire"].forEach(function(object)
+		{
+			for (let obj = 0; obj < object.length; obj++)
+		{
+			
+		}
+			
+		});*/
 }

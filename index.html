@@ -21,15 +21,15 @@
 		<a>aw man</a>
 		<a>continue with bugs</a>
 </div-->
-	<a id="themetoggle" onclick="toggle_theme()" href="#">my eyes hurt :(</a>
+	<!--a id="themetoggle" onclick="toggle_theme()" href="#">my eyes hurt :(</a-->
 	<div id="canvas">
 		
 	</div>
 	<!--canvas id='cats' width="640px" height="360px">canvas :(</canvas-->
-		
+	<canvas id="generated" width="640px" height="360px" style="display: none"></canvas>
 	<div class="container">
 	
-		<button style="cursor:not-allowed;" disabled>save image</button>
+		<button onclick="generateImage()">save image</button>
 		<select id="fileType" value="png">
 			<option value="png">.png</option>
 			<option value="jpg">.jpg</option>
@@ -48,16 +48,14 @@
 	</div>
 	<div class="container">
 		<img src="assets/catsitting.gif" style="display: block; margin-left:auto; margin-right: auto;">
-		<p>i have not tested it but it probably will not work on mobile devices, for best experience use a computer. i'm
-			unsure if i am going to be able to finish this, i'm not sure how i'm gonna make the image downloadable yet. images
-			are 640x360 pixels. dunno if i will ever add the ability to choose the size <br /> <br /> gif support is planned.
-			i have no intentions to add animation/motion, too hard. <br /> <br /> layering is based on the cats vertical
-			position, cats higher up will appear behind cats lower than it. and you can flip objects by right clicking them<br /> <br />as of right now some of that text is
-			lying to you you <i>can</i> do a few things now its really silly!!!<br/><br/> oh yeah, don't drag objects off the canvas, writing this before i even do anything to make dragging work but i might have not been able to stop you from doing so, you will lose the cat and wont be able to get it back</p>
+		<p><b>this site does not work on mobile, i have tested it. yes i want to add mobile support, no it is not a priority</b><br/>right click to flip object around, left click to drag it around, double click to force the object to front. </p>
 
 	</div>
-	<a href="https://github.com/aflacc/campfire-cats/issues" target="_blank" style="opacity: 25%; width: 100%; margin:auto; text-align:center;">report a bug</a>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<a href="https://github.com/aflacc/campfire-cats/issues" target="_blank" style="opacity: 25%; width: 100%; margin:auto; text-align:center;">report a bug</a> <a style="opacity: 25%">●</a> <a style="display: inline-block" id="themetoggle" onclick="toggle_theme()" href="#">my eyes hurt :(</a>
+	<script src="null"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script src="script.js"></script>
 </body>
 
