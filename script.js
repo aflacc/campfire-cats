@@ -229,10 +229,10 @@ const ctx = document.getElementById("generated").getContext("2d");
 function generateImage()
 {
 	console.log("Generating image!!! :3")
-	domtoimage.toPng(document.getElementById("canvas"))
+	/*domtoimage.toPng(document.getElementById("canvas"))
     .then(function (dataUrl) {
 			window.open('',dataUrl)
-		})
+		})*/
 	/*domtoimage.toJpeg(document.getElementById('canvas'), { quality: 0.95 })
     .then(function (dataUrl) {
         var link = document.createElement('a');
