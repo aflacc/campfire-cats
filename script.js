@@ -10,8 +10,8 @@ var darktheme = false;
 var seen_warning = false; // for having too many objects
 
 var images = {
-	"campfire": "https://github.com/aflacc/campfire-cats/blob/main/assets/campfire.gif?raw=true",
-	"cat": "https://github.com/aflacc/campfire-cats/blob/main/assets/cat.png?raw=true"
+	"campfire": "assets/campfire.gif",
+	"cat": "assets/cat.png"
 }
 
 // math.random is weird
@@ -222,46 +222,35 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
   // false for not mobile device
   //document.write("not mobile device");
 }
-const canvas = document.getElementById("generated")
-const ctx = document.getElementById("generated").getContext("2d");
+//const canvas = document.getElementById("generated")
+//const ctx = document.getElementById("generated").getContext("2d");
 
 // wip, likely will break.
 function generateImage()
 {
 	console.log("Generating image!!! :3")
-	/*domtoimage.toPng(document.getElementById("canvas"))
-    .then(function (dataUrl) {
-			window.open('',dataUrl)
-		})*/
-	/*domtoimage.toJpeg(document.getElementById('canvas'), { quality: 0.95 })
+	domtoimage.toJpeg(document.getElementById('canvas'), { quality: 0.95 })
     .then(function (dataUrl) {
         var link = document.createElement('a');
         link.download = 'my-image-name.jpeg';
         link.href = dataUrl;
         link.click();
-    });*/
+    });
+	/*// FINE, ill write one myself. thanks github for being annoying!
+	var generated = document.createElement("canvas");
+	generated.width = "480";
+	generated.height = "360";
+	const ctx = generated.getContext("2d");
 
-	/*
-	var c = document.getElementById('generated');
-	c.style.display = "block";
-    var t = c.getContext('2d');
-    window.location.href = image;
-
-    window.open('', document.getElementById('generated').toDataURL());
-	/**/
-	ctx.setTransform(1, 0, 0, 1, 0, 0);
-	 
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.beginPath();
-	ctx.globalCompositeOperation = "destination-over";
-	//const combine = []; // objects but its combined into one and sorted by z-index
-	
-	/*["cat","campfire"].forEach(function(object)
-		{
-			for (let obj = 0; obj < object.length; obj++)
-		{
-			
-		}
-			
-		});*/
+	ctx.rect(20, 20, 150, 100);
+	ctx.fillStyle = "red";
+	ctx.fill();
+
+	// replace this code with code that actually does what im gonna do later
+
+	//window.location.href = generated.toDataURL();
+
+	console.log(generated.toDataURL());
+  window.open('', generated.toDataURL());*/
 }
