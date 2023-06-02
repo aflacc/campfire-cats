@@ -22,21 +22,21 @@
 		<a>continue with bugs</a>
 </div-->
 	<!--a id="themetoggle" onclick="toggle_theme()" href="#">my eyes hurt :(</a-->
+	<div class="fix-stupid-export-bug">
 	<div id="canvas">
 		
 	</div>
-	<!--canvas id='cats' width="640px" height="360px">canvas :(</canvas-->
-	<canvas id="generated" width="640px" height="360px" style="display: none"></canvas>
+	</div>
 	<div class="container">
 	
 		<button onclick="generateImage()">save image (works now!!)</button>
 		<select id="fileType" value="png">
 			<option value="png">.png</option>
-			<option value="jpg">.jpg</option>
-			<option value="gif">.gif</option>
+			<option value="jpeg">.jpeg</option>
+			<option disabled value="gif">.gif</option>
 		</select>
-		<input type="number" min="0" value="3" id="counter_cats" title="cats" oninput="changeObjectCount()">
-		<input type="number" min="0" value="1" id="counter_campfires" title="campfires" oninput="changeObjectCount()">
+		Cats: <input type="number" min="0" value="3" id="counter_cats" title="cats" oninput="changeObjectCount()">
+		Campfires: <input type="number" min="0" value="1" id="counter_campfires" title="campfires" oninput="changeObjectCount()">
 		
 		<!--select id="mode" onchange="update_instructions()" value="cat">
 			<option value="cat">cat</option>

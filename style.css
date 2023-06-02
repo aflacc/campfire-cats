@@ -32,7 +32,6 @@ html {
 	image-rendering:pixelated;
 }
 canvas, .container, #canvas{
-	border: 2px var(--theme-border) solid;
 	position: relative;
 }
 
@@ -50,6 +49,10 @@ canvas, #canvas {
 .container {
 	padding: 8px;
 	width: 100%;
+	border: 2px var(--theme-border) solid;
+}
+.fix-stupid-export-bug {
+		border: 2px var(--theme-border) solid;
 }
 
 button, select, input {

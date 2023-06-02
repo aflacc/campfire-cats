@@ -228,11 +228,33 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 // wip, likely will break.
 function generateImage()
 {
-	console.log("Generating image!!! :3")
-	domtoimage.toBlob(document.getElementById('canvas'))
+	//document.getElementById("canvas").style.border = "none";
+	
+	var method = document.getElementById("fileType").value;
+	switch(method)
+		{
+			case 'gif':
+				window.alert("how did you set it to gif");
+				break;
+			case 'jpeg':
+				domtoimage.toJpeg(document.getElementById('canvas'),{bgcolor: "#ffffff"})
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'generated.jpeg';
+        link.href = dataUrl;
+        link.click();
+    });
+				break;
+			default: // also pngs method but theres zero reason to duplicate the code
+				domtoimage.toBlob(document.getElementById('canvas'))
     .then(function (blob) {
         window.saveAs(blob, 'generated.png');
     });
+				break;
+		}
+	//document.getElementById("canvas").style.border = " 2px var(--theme-border) solid";
+	console.log("Generating image!!! :3")
+	
 	/*// FINE, ill write one myself. thanks github for being annoying!
 	var generated = document.createElement("canvas");
 	generated.width = "480";
