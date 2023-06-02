@@ -229,12 +229,9 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 function generateImage()
 {
 	console.log("Generating image!!! :3")
-	domtoimage.toJpeg(document.getElementById('canvas'), { quality: 0.95 })
-    .then(function (dataUrl) {
-        var link = document.createElement('a');
-        link.download = 'my-image-name.jpeg';
-        link.href = dataUrl;
-        link.click();
+	domtoimage.toBlob(document.getElementById('canvas'))
+    .then(function (blob) {
+        window.saveAs(blob, 'generated.png');
     });
 	/*// FINE, ill write one myself. thanks github for being annoying!
 	var generated = document.createElement("canvas");
