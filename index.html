@@ -42,7 +42,8 @@
 		</select>
 		<span id="catlabel" class="label" disabled>Cats:</span> <input type="number" min="0" value="3" id="counter_cats" title="cats" oninput="changeObjectCount()" disabled>
 		<span id="camplabel" class="label" disabled>Campfires:</span> <input type="number" min="0" value="1" id="counter_campfires" title="campfires" oninput="changeObjectCount()" disabled>
-		<button id="helpButton" style="font-weight: bold;">?</button>
+		<span id="helpButton" class="tooltip" style="font-weight: bold;">?
+		<span class="tooltiptext"><b style="font-weight:bolder;">controls</b><p>left click - drag objects, double click to send to front<br/>right click - flip object around<br/><br/>the controls are easy why did you need a menu for that</p></span></span>
 		
 		<!--select id="mode" onchange="update_instructions()" value="cat">
 			<option value="cat">cat</option>
@@ -54,7 +55,7 @@
 	</div>
 	<div class="container">
 		<img src="assets/catsitting.gif" style="display: block; margin-left:auto; margin-right: auto;">
-		<p><b>this site does not work on mobile, i have tested it. yes i want to add mobile support, no it is not a priority</b><br/>right click to flip object around, left click to drag it around, double click to force the object to front. </p>
+		<p><b>this site does not work on mobile, i have tested it. yes i want to add mobile support, no it is not a priority</b><br/>does anyone know how i could potentially export as gif i still cant figure out how to do it right</p>
 
 	</div>
 	<a href="https://github.com/aflacc/campfire-cats/issues" target="_blank" style="opacity: 25%; width: 100%; margin:auto; text-align:center;">report a bug</a> <a style="opacity: 25%">●</a> <a style="display: inline-block" id="themetoggle" onclick="toggle_theme()" href="#">my eyes hurt :(</a>
