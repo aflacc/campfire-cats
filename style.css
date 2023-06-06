@@ -1,15 +1,15 @@
 :root {
 	--light-background: white;
-	--light-text: black;
+	--light-text: #22262a;
 	--light-border: #bdbdbd;
 	--light-button: #e0e0e0;
 	--light-button-border:#9e9e9e;
 
-	--dark-background: #1f1f1f;
+	--dark-background: #1f2123;
 	--dark-text: white;
-	--dark-border: #545454;
-	--dark-button: #4f4f4f;
-	--dark-button-border:#969696;
+	--dark-border: #45474a;
+	--dark-button: #4c4f52;
+	--dark-button-border:#686b6e;
 
 	--theme-background: 		var(--light-background);
 	--theme-text: 					var(--light-text);
