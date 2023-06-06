@@ -53,8 +53,20 @@ canvas, #canvas {
 }
 .fix-stupid-export-bug {
 		border: 2px var(--theme-border) solid;
+		width: 640px;
+	height: 360px; /* a little dumb for forgetting this one */
 }
 
+input:disabled {
+	cursor: not-allowed;
+	opacity: 50%;
+}
+.label:disabled {
+	opacity: 50%;
+}
+button:disabled {
+	opacity: 50%;
+}
 button, select, input {
 	padding: 2px 6px 2px 6px;
 	font-size: 14px;
