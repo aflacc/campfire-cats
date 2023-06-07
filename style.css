@@ -229,3 +229,9 @@ canvas {
 	top: 0;
 	text-align: center;
 }
+
+.header {
+	margin: auto;
+	width: 640px;
+	height: 32px;
+}

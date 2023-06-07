@@ -208,9 +208,6 @@ createObject("cat", 380, 125, true)
 // and finally
 changeObjectCount()
 
-//const canvas = document.getElementById("generated")
-//const ctx = document.getElementById("generated").getContext("2d");
-
 // wip, likely will break.
 function generateImage() {
 	//document.getElementById("canvas").style.border = "none";
@@ -239,26 +236,7 @@ function generateImage() {
 				});
 			break;
 	}
-	//document.getElementById("canvas").style.border = " 2px var(--theme-border) solid";
 	console.log("Generating image!!! :3")
-	
-	/*// FINE, ill write one myself. thanks github for being annoying!
-	var generated = document.createElement("canvas");
-	generated.width = "480";
-	generated.height = "360";
-	const ctx = generated.getContext("2d");
-
-	ctx.beginPath();
-	ctx.rect(20, 20, 150, 100);
-	ctx.fillStyle = "red";
-	ctx.fill();
-
-	// replace this code with code that actually does what im gonna do later
-
-	//window.location.href = generated.toDataURL();
-
-	console.log(generated.toDataURL());
-	window.open('', generated.toDataURL());*/
 }
 
 toggleDisabled(false)
